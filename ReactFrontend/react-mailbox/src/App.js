@@ -14,17 +14,23 @@ class App extends React.Component
 	{
 		return(
 			<div style={{display: "flex", flexDirection: "row"}}>
-				<div style={{paddingLeft: "150px"}}>
+				<div>
 					<SideBar/>
 				</div>
 				<div style={{display: "flex", flexDirection: "column"}}>
-					<div style={{height: "500px", overflowY: "auto", position: "fixed", overflowX: "hidden"}}>
+					<div style={{height: "500px", overflowY: "auto", overflowX: "hidden"}}>
+						<EachChatBox/>
+						<EachChatBox/>
+						<EachChatBox/>
+						<EachChatBox/>
+						<EachChatBox/>
+						<EachChatBox/>
 						<EachChatBox/>
 						<EachChatBox/>
 						<EachChatBox/>
 						<EachChatBox/>
 					</div>
-					<div style={{paddingTop: "550px"}}>
+					<div>
 						<SubmitText/>
 					</div>
 				</div>

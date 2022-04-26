@@ -1,10 +1,8 @@
 //import "antd/dist/antd.css";
 import React from 'react';
 import {Button} from 'antd';
-import { Input } from 'antd';
 import { Avatar, Divider, Tooltip } from 'antd';
-import { UserOutlined, AntDesignOutlined } from '@ant-design/icons';
-const { TextArea } = Input;
+import { UserOutlined, AlertOutlined, CrownOutlined } from '@ant-design/icons';
 
 
 
@@ -25,7 +23,15 @@ class SideBar extends React.Component
 					<Tooltip title="User3" placement="top">
 						<Avatar style={{backgroundColor: 'red'}} icon={<UserOutlined />}/>
 					</Tooltip>
-				</Avatar.Group>			
+				</Avatar.Group>
+								<div style={{display: "flex", flexDirection: "row", paddingTop: "15px"}}>
+					<Tooltip title="Alert" placement="top">
+						<Button type="primary" shape="square" icon={<AlertOutlined />}/>
+					</Tooltip>
+					<Tooltip title="Who is Hosting?" placement="top">
+						<Button type="primary" shape="square" icon={<CrownOutlined />}/>
+					</Tooltip>
+				</div>
 			</div>
 		);
 	}
