@@ -17,7 +17,7 @@ class App extends React.Component
 				<div>
 					<SideBar/>
 				</div>
-				<div style={{display: "flex", flexDirection: "column"}}>
+				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
 					<div style={{height: "500px", overflowY: "auto", overflowX: "hidden"}}>
 						<EachChatBox/>
 						<EachChatBox/>
