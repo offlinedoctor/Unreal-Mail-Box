@@ -4,36 +4,54 @@ import {Button} from 'antd';
 import { Avatar, Divider, Tooltip } from 'antd';
 import { UserOutlined, AlertOutlined, CrownOutlined } from '@ant-design/icons';
 
-
-
 class SideBar extends React.Component
 {
+	
+	constructor()
+	{
+		super();
+		
+		this.state = 
+		{	
+			eachuser: ["hello", "hello2"],
+		}
+
+		this.NotificationSound = this.NotificationSound.bind(this);
+		this.ShowHost = this.ShowHost.bind(this);
+	}
+
+	NotificationSound()
+	{
+		window.ue4("NotificationSound");
+	}
+
+	ShowHost()
+	{
+		window.ue4("ShowHost");
+	}
+	
 	render()
 	{
 		return(
-			<div style={{paddingRight: "15px"}}>
-				<div>
-					<h2> In Session </h2>
-					<Avatar.Group>
-						<Tooltip title="User1" placement="top">
-							<Avatar style={{backgroundColor: '#87d068'}} icon={<UserOutlined />}/>
-						</Tooltip>
-						<Tooltip title="User2" placement="top">
-							<Avatar style={{backgroundColor: 'blue'}} icon={<UserOutlined />}/>
-						</Tooltip>
-						<Tooltip title="User3" placement="top">
-							<Avatar style={{backgroundColor: 'red'}} icon={<UserOutlined />}/>
-						</Tooltip>
-					</Avatar.Group>
+			<div>
+				<div style={{display: "flex", flexDirection: "column", borderBottom: "1px solid", alignItems: "center"}}>
+					<h2 style={{color: "white"}}> Session </h2>
+					{
+						this.state.eachuser.map(eachIteration =>
+							<Tooltip title={eachIteration} placement="right">
+								<Avatar style={{backgroundColor: 'red'}} icon={<UserOutlined />}/>
+							</Tooltip>
+						)
+					}
 				</div>
 				<div style={{paddingTop: "25px"}}>
-					<h2> Tools </h2>
-					<div style={{display: "flex", flexDirection: "row"}}>
-						<Tooltip title="Who is Hosting?" placement="top">
-							<Button type="primary" shape="square" icon={<CrownOutlined />}/>
+					<h2 style={{color: "white", textAlign: "center"}}> Tools </h2>
+					<div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+						<Tooltip title="Who is Hosting?" placement="right">
+							<Button type="primary" onClick={this.ShowHost} shape="square" icon={<CrownOutlined />}/>
 						</Tooltip>
-						<Tooltip title="Alert" placement="top">
-							<Button type="primary" shape="square" icon={<AlertOutlined />}/>
+						<Tooltip title="Ring Bell" placement="right">
+							<Button type="primary" onClick={this.NotificationSound} shape="square" icon={<AlertOutlined />}/>
 						</Tooltip>
 					</div>
 				</div>

@@ -4,8 +4,8 @@ import SubmitText from './SubmitText.js';
 import SideBar from './SideBar.js';
 import EachChatBox from './EachChatBox.js';
 import {Button} from 'antd';
-import { Input } from 'antd';
-const { TextArea } = Input;
+import {Input} from 'antd';
+const  {TextArea} = Input;
 
 
 class App extends React.Component
@@ -14,8 +14,8 @@ class App extends React.Component
 	{
 		return(
 			<div style={{display: "flex", flexDirection: "row"}}>
-				<div>
-					<SideBar/>
+				<div style={{background: "#9E9E9E"}}>
+					<SideBar eachUser={"hello"}/>
 				</div>
 				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
 					<div style={{height: "500px", overflowY: "auto", overflowX: "hidden"}}>
