@@ -14,7 +14,7 @@ class EachChatBox extends React.Component
 					<Avatar size={32} icon={<UserOutlined />} />
 					<div style={{display: "flex", alignItems: "center", paddingTop: "3px", paddingLeft: "4px"}}>
 						<h3> {this.props.username} </h3>
-						<h5 style={{paddingLeft: "5px", color: "grey"}}> {this.props.timettamp} </h5>
+						<h5 style={{paddingLeft: "5px", color: "grey"}}> {this.props.timestamp} </h5>
 					</div>
 				</div>
 				<div style={{display: "flex", alignItems: "center", paddingTop: "10px"}}>

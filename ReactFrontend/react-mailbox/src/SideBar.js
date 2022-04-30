@@ -4,6 +4,14 @@ import {Button} from 'antd';
 import { Avatar, Divider, Tooltip } from 'antd';
 import { UserOutlined, AlertOutlined, CrownOutlined } from '@ant-design/icons';
 
+var UserSessions = ["NameA", "NameB"];
+
+window.ue.interface.UpdateUserSessions = function(JSON_PayLoad)
+{
+	UserSessions = JSON_PayLoad;
+	window.sideBarComponent.UpdateUsers();
+}
+
 class SideBar extends React.Component
 {
 	
@@ -13,11 +21,19 @@ class SideBar extends React.Component
 		
 		this.state = 
 		{	
-			eachuser: ["hello", "hello2"],
+			eachuser: [],
 		}
-
+	
+		window.sideBarComponent = this;
 		this.NotificationSound = this.NotificationSound.bind(this);
 		this.ShowHost = this.ShowHost.bind(this);
+		this.UpdateUsers = this.UpdateUsers.bind(this);
+	}
+
+	//Could we abstract this and use Props instead?
+	UpdateUsers()
+	{
+		this.setState({eachuser: UserSessions});
 	}
 
 	NotificationSound()
@@ -37,7 +53,7 @@ class SideBar extends React.Component
 				<div style={{display: "flex", flexDirection: "column", borderBottom: "1px solid", alignItems: "center"}}>
 					<h2 style={{color: "white"}}> Session </h2>
 					{
-						this.state.eachuser.map(eachIteration =>
+						UserSessions.map(eachIteration =>
 							<Tooltip title={eachIteration} placement="right">
 								<Avatar style={{backgroundColor: 'red'}} icon={<UserOutlined />}/>
 							</Tooltip>
