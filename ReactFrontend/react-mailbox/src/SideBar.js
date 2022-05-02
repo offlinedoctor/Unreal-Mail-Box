@@ -49,8 +49,8 @@ class SideBar extends React.Component
 	render()
 	{
 		return(
-			<div>
-				<div style={{display: "flex", flexDirection: "column", borderBottom: "1px solid", alignItems: "center"}}>
+			<div style={{padding: "25px"}}>
+				<div style={{display: "flex", flexDirection: "column", paddingBottom: "25px", borderBottom: "1px solid", alignItems: "center"}}>
 					<h2 style={{color: "white"}}> Session </h2>
 					{
 						UserSessions.map(eachIteration =>

@@ -55,17 +55,18 @@ class App extends React.Component
 	render()
 	{
 		return(
-			<div style={{display: "flex", flexDirection: "row"}}>
-				<div style={{background: "#9E9E9E"}}>
+			<div style={{display: "flex", flexDirection: "row", height: "100%", width: "100%"}}>
+				<div style={{background: "#9E9E9E", marginRight: "20px"}}>
 					<SideBar/>
 				</div>
-				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
-					<div style={{height: "500px", overflowY: "auto", overflowX: "hidden"}}>
+				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)", width: "100%", backgroundColor: "white", paddingLeft: "10px"}}>
+					<div style={{overflowY: "auto", overflowX: "hidden", height: "100%"}}>
 					{
 						this.state.StateArrayList.List.map(eachIteration =>
 							<EachChatBox username={eachIteration.username} chat={eachIteration.chat} timestamp = {eachIteration.timestamp}/>
 						)
 					}
+					<EachChatBox username="hello" chat="hello this is a test run hello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test run"/>
 					</div>
 					<div>
 						<SubmitText/>
