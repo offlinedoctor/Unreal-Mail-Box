@@ -59,14 +59,13 @@ class App extends React.Component
 				<div style={{marginRight: "20px"}}>
 					<SideBar/>
 				</div>
-				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)", width: "100%", backgroundColor: "rgba(255,255,255,0.5)", borderRadius: "25px"}}>
+				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)", width: "100%", backgroundColor: "rgba(238,238,238,0.95)", borderRadius: "25px"}}>
 					<div style={{overflowY: "auto", overflowX: "hidden", height: "100%"}}>
 					{
 						this.state.StateArrayList.List.map(eachIteration =>
 							<EachChatBox username={eachIteration.username} chat={eachIteration.chat} timestamp = {eachIteration.timestamp}/>
 						)
 					}
-					<EachChatBox username="hello" chat="hello this is a test run hello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test runhello this is a test run"/>
 					</div>
 					<div>
 						<SubmitText/>
