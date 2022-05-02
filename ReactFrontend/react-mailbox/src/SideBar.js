@@ -49,7 +49,7 @@ class SideBar extends React.Component
 	render()
 	{
 		return(
-			<div style={{padding: "25px", backgroundColor: "rgba(1,1,1,0.8)", borderRadius: "15px", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
+			<div style={{padding: "25px", backgroundColor: "rgba(1,1,1,0.75)", borderRadius: "15px", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
 				<div style={{display: "flex", flexDirection: "column", paddingBottom: "25px", borderBottom: "1px solid", alignItems: "center"}}>
 					<h2 style={{color: "white"}}> Session </h2>
 					{
@@ -66,7 +66,7 @@ class SideBar extends React.Component
 						<Tooltip title="Who is Hosting?" placement="right">
 							<Button type="primary" onClick={this.ShowHost} shape="square" icon={<CrownOutlined />}/>
 						</Tooltip>
-						<Tooltip title="Ring Bell" placement="right">
+						<Tooltip title="Ring Bell"  placement="right">
 							<Button type="primary" onClick={this.NotificationSound} shape="square" icon={<AlertOutlined />}/>
 						</Tooltip>
 					</div>
