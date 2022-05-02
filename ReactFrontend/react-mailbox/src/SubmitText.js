@@ -6,6 +6,12 @@ import { CaretRightOutlined, SmileOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
 
+window.ue.interface.ScrollToBottom = function(JSON_Payload)
+{
+	var objDiv = document.getElementById("customSlider");
+	objDiv.scrollTop = objDiv.scrollHeight;
+}
+
 class SubmitText extends React.Component
 {
 	constructor()
@@ -23,9 +29,12 @@ class SubmitText extends React.Component
 		{
 			console.log(document.getElementById("InputText").value);
 			window.ue4("AddToMailboxArray", document.getElementById("InputText").value);
+			document.getElementById("InputText").value = "";
+			document.getElementById("InputText").value.trim();
+			//document.getElementById("InputText").value.replace(/(?:\r\n|\r|\n)/g, '');
 		}
 	}
-	
+		
 	render()
 	{
 		return(
