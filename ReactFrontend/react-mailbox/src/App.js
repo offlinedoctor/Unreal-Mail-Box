@@ -55,11 +55,11 @@ class App extends React.Component
 	render()
 	{
 		return(
-			<div style={{display: "flex", flexDirection: "row", height: "100%", width: "100%"}}>
-				<div style={{background: "#9E9E9E", marginRight: "20px"}}>
+			<div style={{display: "flex", flexDirection: "row", height: "100%", width: "100%", padding: "25px"}}>
+				<div style={{marginRight: "20px"}}>
 					<SideBar/>
 				</div>
-				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)", width: "100%", backgroundColor: "white", paddingLeft: "10px"}}>
+				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)", width: "100%", backgroundColor: "rgba(255,255,255,0.5)", borderRadius: "25px"}}>
 					<div style={{overflowY: "auto", overflowX: "hidden", height: "100%"}}>
 					{
 						this.state.StateArrayList.List.map(eachIteration =>
