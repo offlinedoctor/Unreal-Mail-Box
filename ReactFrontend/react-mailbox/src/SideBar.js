@@ -2,12 +2,13 @@
 import React from 'react';
 import {Button} from 'antd';
 import { Avatar, Divider, Tooltip } from 'antd';
-import { AlertOutlined, CrownOutlined, SmileTwoTone} from '@ant-design/icons';
+import { NotificationOutlined, CrownOutlined, SmileTwoTone, ClusterOutlined} from '@ant-design/icons';
 import { Input } from 'antd';
 import { Select } from 'antd';
 
 import icon_OW from "./icon_OW.png";
 import icon_FFXIV from "./icon_FFXIV.png";
+import icon_Generic from "./icon_Generic.png";
 
 var UserSessions = ["NameA", "NameB"];
 var nameAndIcon = {name: "", icon: ""};
@@ -36,7 +37,7 @@ class SideBar extends React.Component
 		this.state = 
 		{	
 			eachuser: [],
-			iconSelected: "",
+			iconSelected: icon_Generic,
 			username: ""
 		}
 	
@@ -45,6 +46,7 @@ class SideBar extends React.Component
 		this.ShowHost = this.ShowHost.bind(this);
 		this.UpdateUsers = this.UpdateUsers.bind(this);
 		this.UpdateNameAndIcon = this.UpdateNameAndIcon.bind(this);
+		this.ShowDebugMenu = this.ShowDebugMenu.bind(this);
 	}
 
 	//Could we abstract this and use Props instead?
@@ -67,6 +69,11 @@ class SideBar extends React.Component
 	{
 		this.setState({username: nameAndIcon.username});
 		this.setState({iconSelected: nameAndIcon.icon});
+	}
+	
+	ShowDebugMenu()
+	{
+		window.ue4("ShowDebugMenu");
 	}
 		
 	render()
@@ -95,7 +102,10 @@ class SideBar extends React.Component
 							<Button type="primary" onClick={this.ShowHost} shape="square" icon={<CrownOutlined />}/>
 						</Tooltip>
 						<Tooltip title="Ring Bell"  placement="right">
-							<Button type="primary" onClick={this.NotificationSound} shape="square" icon={<AlertOutlined />}/>
+							<Button type="primary" onClick={this.NotificationSound} shape="square" icon={<NotificationOutlined />}/>
+						</Tooltip>
+						<Tooltip title="Debug Menu"  placement="right">
+							<Button type="primary" onClick={this.ShowDebugMenu} shape="square" icon={<ClusterOutlined />}/>
 						</Tooltip>
 					</div>
 				</div>
