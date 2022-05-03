@@ -10,11 +10,10 @@ import icon_OW from "./icon_OW.png";
 import icon_FFXIV from "./icon_FFXIV.png";
 
 var UserSessions = ["NameA", "NameB"];
-var nameAndIcon;
+var nameAndIcon = {name: "", icon: ""};
 
 window.ue.interface.UpdateUserSessions = function(JSON_PayLoad)
 {
-	console.log(JSON_PayLoad);
 	UserSessions = JSON_PayLoad;
 	window.sideBarComponent.UpdateUsers();
 }
@@ -52,7 +51,6 @@ class SideBar extends React.Component
 	UpdateUsers()
 	{
 		this.setState({eachuser: UserSessions});
-		console.log(this.state.eachuser);
 	}
 
 	NotificationSound()
@@ -69,8 +67,6 @@ class SideBar extends React.Component
 	{
 		this.setState({username: nameAndIcon.username});
 		this.setState({iconSelected: nameAndIcon.icon});
-		console.log(this.state.username);
-		console.log(this.state.iconSelected);
 	}
 		
 	render()
