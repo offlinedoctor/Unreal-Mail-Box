@@ -10,12 +10,22 @@ import icon_OW from "./icon_OW.png";
 import icon_FFXIV from "./icon_FFXIV.png";
 
 var UserSessions = ["NameA", "NameB"];
+var nameAndIcon;
 
 window.ue.interface.UpdateUserSessions = function(JSON_PayLoad)
 {
+	console.log(JSON_PayLoad);
 	UserSessions = JSON_PayLoad;
 	window.sideBarComponent.UpdateUsers();
 }
+
+window.ue.interface.UpdateNamesAndIcons = function(JSON_PayLoad)
+{
+	console.log(JSON_PayLoad);
+	nameAndIcon = JSON_PayLoad;
+	window.sideBarComponent.UpdateNameAndIcon();
+}
+
 
 class SideBar extends React.Component
 {
@@ -35,12 +45,14 @@ class SideBar extends React.Component
 		this.NotificationSound = this.NotificationSound.bind(this);
 		this.ShowHost = this.ShowHost.bind(this);
 		this.UpdateUsers = this.UpdateUsers.bind(this);
+		this.UpdateNameAndIcon = this.UpdateNameAndIcon.bind(this);
 	}
 
 	//Could we abstract this and use Props instead?
 	UpdateUsers()
 	{
 		this.setState({eachuser: UserSessions});
+		console.log(this.state.eachuser);
 	}
 
 	NotificationSound()
@@ -53,6 +65,14 @@ class SideBar extends React.Component
 		window.ue4("ShowHost");
 	}
 	
+	UpdateNameAndIcon()
+	{
+		this.setState({username: nameAndIcon.username});
+		this.setState({iconSelected: nameAndIcon.icon});
+		console.log(this.state.username);
+		console.log(this.state.iconSelected);
+	}
+		
 	render()
 	{
 		return(
@@ -65,7 +85,7 @@ class SideBar extends React.Component
 				<div style={{display: "flex", flexDirection: "column", paddingBottom: "25px", borderBottom: "1px solid", alignItems: "center"}}>
 					<h2 style={{color: "white"}}> Session </h2>
 					{
-						UserSessions.map(eachIteration =>
+						this.state.eachuser.map(eachIteration =>
 							<Tooltip title={eachIteration} placement="right">
 								<Avatar style={{backgroundColor: 'red'}} icon={<UserOutlined />}/>
 							</Tooltip>
