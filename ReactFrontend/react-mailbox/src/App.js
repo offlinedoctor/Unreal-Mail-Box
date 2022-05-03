@@ -15,14 +15,10 @@ var ArrayList =
 	"List":
 	[
 		{
-			username: "hello1",
-			chat: "hello1",
-			timestamp: "hello1"
-		},
-		{
-			username: "hello232",
-			chat: "hello2",
-			timestamp: "hello2"
+			username: "",
+			chat: "",
+			icon: "",
+			timestamp: ""
 		}
 	]
 };
@@ -72,9 +68,13 @@ class App extends React.Component
 				<div style={{display: "flex", flexDirection: "column", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)", width: "100%", backgroundColor: "rgba(238,238,238,0.95)", borderTopLeftRadius: "25px", borderTopRightRadius: "25px", borderBottomLeftRadius: "10px", borderBottomRightRadius: "10px", overflow: "hidden"}}>
 					<div  id="customSlider" style={{overflowY: "auto", overflowX: "hidden", height: "100%"}}>
 					{
-						this.state.StateArrayList.List.map(eachIteration =>
-							<EachChatBox username={eachIteration.username} chat={eachIteration.chat} timestamp = {eachIteration.timestamp}/>
-						)
+						
+						this.state.StateArrayList.List[0].timestamp != "" 
+						? 	this.state.StateArrayList.List.map(eachIteration =>
+								<EachChatBox username={eachIteration.username} chat={eachIteration.chat} icon = {eachIteration.icon} timestamp = {eachIteration.timestamp}/>
+							)
+						:	<></>
+						
 					}
 					</div>
 					<div>
