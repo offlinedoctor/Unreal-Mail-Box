@@ -4,6 +4,7 @@ import SubmitText from './SubmitText.js';
 import SideBar from './SideBar.js';
 import EachChatBox from './EachChatBox.js';
 import StyleCSS from './StyleCSS.css';
+import InitialModal from './InitialModal.js';
 import {Button} from 'antd';
 import {Input} from 'antd';
 const  {TextArea} = Input;
@@ -64,6 +65,7 @@ class App extends React.Component
 	{
 		return(
 			<div style={{display: "flex", flexDirection: "row", height: "100%", width: "100%", padding: "25px", border: "25px solid rgba(1,1,1,0.5)"}}>
+				<InitialModal />
 				<div style={{marginRight: "20px"}}>
 					<SideBar/>
 				</div>

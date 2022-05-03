@@ -19,6 +19,7 @@ class SubmitText extends React.Component
 		super();
 		
 		this.keyPress = this.keyPress.bind(this);
+		this.SubmitMail = this.SubmitMail.bind(this);
 	}
 	
 	keyPress(event)
@@ -27,19 +28,25 @@ class SubmitText extends React.Component
 		
 		if (event.key === "Enter")
 		{
-			console.log(document.getElementById("InputText").value);
-			window.ue4("AddToMailboxArray", document.getElementById("InputText").value);
-			document.getElementById("InputText").value = "";
-			document.getElementById("InputText").value.trim();
-			//document.getElementById("InputText").value.replace(/(?:\r\n|\r|\n)/g, '');
+			this.SubmitMail();
+			event.preventDefault();
 		}
+	}
+	
+	SubmitMail()
+	{
+		console.log(document.getElementById("MyInputText").value);
+		window.ue4("AddToMailboxArray", document.getElementById("MyInputText").value);
+		document.getElementById("MyInputText").value = " ";
+		//document.getElementById("MyInputText").value.focus();
+		//document.getElementById("MyInputText").setSelectionRange(0,0);
 	}
 		
 	render()
 	{
 		return(
 			<div style={{display: "flex", flexDirection: "row", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
-				<TextArea rows={2} id="InputText" onKeyDown={this.keyPress} style={{resize: "none"}}/>
+				<TextArea rows={2} id="MyInputText" onKeyDown={this.keyPress} style={{resize: "none"}}/>
 				<Button type="primary" style={{height: "auto", width: "15%"}} icon=<CaretRightOutlined/>></Button>
 			</div>
 		);

@@ -3,6 +3,11 @@ import React from 'react';
 import {Button} from 'antd';
 import { Avatar, Divider, Tooltip } from 'antd';
 import { UserOutlined, AlertOutlined, CrownOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
+import { Select } from 'antd';
+
+import icon_OW from "./icon_OW.png";
+import icon_FFXIV from "./icon_FFXIV.png";
 
 var UserSessions = ["NameA", "NameB"];
 
@@ -22,6 +27,8 @@ class SideBar extends React.Component
 		this.state = 
 		{	
 			eachuser: [],
+			iconSelected: "",
+			username: ""
 		}
 	
 		window.sideBarComponent = this;
@@ -50,6 +57,11 @@ class SideBar extends React.Component
 	{
 		return(
 			<div style={{padding: "25px", backgroundColor: "rgba(1,1,1,0.75)", borderRadius: "15px", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
+				<h2 style={{color: "white"}}> User Settings </h2>
+				<div style={{display: "flex", flexDirection: "column", paddingBottom: "25px", borderBottom: "1px solid", alignItems: "center"}}>
+					<Input placeholder={this.state.username} disabled={true} />
+					<img src={this.state.iconSelected} style={{height: "25px", width: "25px"}}/>
+				</div>
 				<div style={{display: "flex", flexDirection: "column", paddingBottom: "25px", borderBottom: "1px solid", alignItems: "center"}}>
 					<h2 style={{color: "white"}}> Session </h2>
 					{
