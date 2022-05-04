@@ -28,7 +28,6 @@ class SubmitText extends React.Component
 		
 		this.keyPress = this.keyPress.bind(this);
 		this.SubmitMail = this.SubmitMail.bind(this);
-		this.GetSelectedEmoji = this.GetSelectedEmoji.bind(this);
 		this.downHandler = this.downHandler.bind(this);
 		this.upHandler = this.upHandler.bind(this);
 	}
@@ -61,17 +60,7 @@ class SubmitText extends React.Component
 			event.preventDefault();
 		}
 	}
-	
-	GetSelectedEmoji(event, emojiObject)
-	{
-		console.log(emojiObject.emoji);
-		let textToInsert = emojiObject.emoji;
-		let cursorPosition = document.getElementById("MyInputText").selectionStart;
-		let textBeforeCursorPosition = document.getElementById("MyInputText").value.substring(0, cursorPosition);
-		let textAfterCursorPosition = document.getElementById("MyInputText").value.substring(cursorPosition, document.getElementById("MyInputText").value.length);
-		document.getElementById("MyInputText").value = textBeforeCursorPosition + textToInsert + textAfterCursorPosition;
-	}
-	
+		
 	SubmitMail()
 	{
 		console.log(document.getElementById("MyInputText").value);
