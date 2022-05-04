@@ -2,6 +2,7 @@ import React from 'react';
 import JSON_EmojiList from './emojiJSONList.json';
 import { Button } from 'antd';
 import { Row, Col, Divider } from 'antd';
+import StyleCSS from './StyleCSS.css';
 
 var EmojiList_Smileys = JSON_EmojiList.Smileys;
 var EmojiList_Gestures = JSON_EmojiList.Gestures;
@@ -103,18 +104,20 @@ class EmojiMenu extends React.Component
 	{
 		return(
 			<div style={{width: "50vw"}}>
-				<div style={{backgroundColor: "rgba(255,255,255,0.8)", padding: "25px", borderRadius: "15px"}}>
-					<div style={{display: "flex", padding: "5px", borderRadius: "5px", backgroundColor: "rgba(255,255,255,0.8)"}}>
+				<div style={{padding: "5px", borderRadius: "15px", border: "5px solid #0d47a1"}}>
+					<h1 style={{display: "flex", justifyContent: "center"}}> Emoji Selector </h1>
+					<div style={{display: "flex", justifyContent: "center"}}>
 						{
 							Emoji_SelectionList.List.map(eachIteration => 
-									<input id={eachIteration.id} type="button" value={eachIteration.value} onClick={this.ShowSelectedEmojiList}/>
+									<input class="emojiButtonList" id={eachIteration.id} type="button" value={eachIteration.value} onClick={this.ShowSelectedEmojiList}/>
 							)
 						}
 					</div>
-					<div style={{backgroundColor: "rgba(255,255,255,0.8)", padding: "5px", borderRadius: "5px", marginTop: "25px", display: "flex", flexDirection: "row", flexWrap: 'wrap', overflowY: "auto", height: "250px"}}>
+					<div style={{paddingTop: "15px", borderBottom: "2.5px solid #0d47a1"}}> </div>
+					<div style={{marginTop: "25px", display: "flex", flexDirection: "row", flexWrap: 'wrap', overflowY: "auto", height: "250px"}}>
 					{
 						this.state.chosenEmojiList.map(eachIteration =>
-							<input style={{height: "15%", width: "10%"}} id={eachIteration} type="button" value={eachIteration} onClick={this.SelectedEmoji}/>
+							<input class="emojiSelectButton" style={{height: "15%", width: "4vw"}} id={eachIteration} type="button" value={eachIteration} onClick={this.SelectedEmoji}/>
 						)
 					}
 					</div>

@@ -41,3 +41,45 @@
 	background-color: #0d47a1;
 	transition: 0.1s;
 }
+
+.emojiButtonList
+{
+	background-color: #2196f3;
+	border: none;
+	transition: 0.25s;
+	border-radius: 10px;
+	margin: 1px;
+	width: 4vw;
+	height: 4vh;
+}
+
+.emojiButtonList:hover
+{
+	background-color: #64b5f6;
+}
+
+.emojiButtonList:active
+{
+	background-color: #0d47a1;
+	transition: 0.1s;
+}
+
+.emojiSelectButton
+{
+	background-color: #2196f3;
+	border: none;
+	transition: 0.25s;
+	border-radius: 10px;
+	margin: 1px;
+}
+
+.emojiSelectButton:hover
+{
+	background-color: #64b5f6;
+}
+
+.emojiSelectButton:active
+{
+	background-color: #0d47a1;
+	transition: 0.1s;
+}
