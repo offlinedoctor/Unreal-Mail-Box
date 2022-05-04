@@ -3,6 +3,7 @@ import JSON_EmojiList from './emojiJSONList.json';
 import { Button } from 'antd';
 import { Row, Col, Divider } from 'antd';
 import StyleCSS from './StyleCSS.css';
+import insertTextAtCursor from 'insert-text-at-cursor';
 
 var EmojiList_Smileys = JSON_EmojiList.Smileys;
 var EmojiList_Gestures = JSON_EmojiList.Gestures;
@@ -93,10 +94,8 @@ class EmojiMenu extends React.Component
 	SelectedEmoji(event)
 	{
 		let textToInsert = event.target.id;
-		let cursorPosition = document.getElementById("MyInputText").selectionStart;
-		let textBeforeCursorPosition = document.getElementById("MyInputText").value.substring(0, cursorPosition);
-		let textAfterCursorPosition = document.getElementById("MyInputText").value.substring(cursorPosition, document.getElementById("MyInputText").value.length);
-		document.getElementById("MyInputText").value = textBeforeCursorPosition + textToInsert + textAfterCursorPosition;
+		var textArea = document.getElementById('MyInputText');
+		insertTextAtCursor(textArea, textToInsert);
 	}
 	
 	componentDidMount()
