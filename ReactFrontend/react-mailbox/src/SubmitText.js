@@ -4,7 +4,6 @@ import {Button} from 'antd';
 import { Input } from 'antd';
 import { CaretRightOutlined, SmileOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
-import Picker from 'emoji-picker-react';
 
 const { TextArea } = Input;
 
@@ -91,12 +90,7 @@ class SubmitText extends React.Component
 		return(
 			<div style={{display: "flex", flexDirection: "row", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
 				<textarea fullWidth rows={2} cols={2555} id="MyInputText" onKeyDown={this.keyPress} style={{resize: "none"}}/>
-				<div style={{display: "flex", flexDirection: "column"}}>
-					<Button type="primary" icon=<CaretRightOutlined/>></Button>
-					<Popover content={<Picker onEmojiClick={this.GetSelectedEmoji}/>}>
-						<Button type="primary" icon=<SmileOutlined/>></Button>
-					</Popover>
-				</div>
+				<Button style={{height: "auto"}} onClick={this.SubmitMail} type="primary" icon=<CaretRightOutlined/>></Button>
 			</div>
 		);
 	}
