@@ -19,7 +19,7 @@ class EachChatBox extends React.Component
 					</div>
 				</div>
 				<div style={{borderBottom: "1px solid rgba(0,0,0,0.2)"}}/>
-				<div style={{display: "flex", alignItems: "center", paddingTop: "10px", overflowWrap: "break-word", width: "95%", paddingLeft: "25px"}}>
+				<div style={{display: "flex", alignItems: "center", paddingTop: "10px", overflowWrap: "break-word", width: "95%", paddingLeft: "25px", whiteSpace: "pre-wrap"}}>
 					<p> {this.props.chat} </p>
 				</div>
 			</div>
