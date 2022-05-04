@@ -14,6 +14,23 @@ var EmojiList_Travel = JSON_EmojiList.Travel;
 var EmojiList_Objects = JSON_EmojiList.Objects;
 var EmojiList_Symbols = JSON_EmojiList.Symbols;
 
+var Emoji_SelectionList = 
+{
+	"List":
+	[
+		{id: "Smileys", value: "😀"},
+		{id: "Gestures",value: "👋"},
+		{id: "People", value: "🤳"},
+		{id: "Clothing", value: "🛍"},
+		{id: "Animals", value: "🐱"},
+		{id: "Food", value: "🍟"},
+		{id: "Activities", value: "🎳"},
+		{id: "Travel", value: "🚅"},
+		{id: "Objects",	value: "💻"},
+		{id: "Symbols",	value: "🔶"},
+	]
+}
+
 class EmojiMenu extends React.Component
 {
 	constructor()
@@ -88,16 +105,11 @@ class EmojiMenu extends React.Component
 			<div style={{width: "50vw"}}>
 				<div style={{backgroundColor: "rgba(255,255,255,0.8)", padding: "25px", borderRadius: "15px"}}>
 					<div style={{display: "flex", padding: "5px", borderRadius: "5px", backgroundColor: "rgba(255,255,255,0.8)"}}>
-						<input id="Smileys" type="button" value="😀" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Gestures" type="button" value="👋" onClick={this.ShowSelectedEmojiList}/>
-						<input id="People" type="button" value="🤳" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Clothing" type="button" value="🛍" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Animals" type="button" value="🐱" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Food" type="button" value="🍟" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Activities" type="button" value="🎳" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Travel" type="button" value="🚅" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Objects" type="button" value="💻" onClick={this.ShowSelectedEmojiList}/>
-						<input id="Symbols" type="button" value="🔶" onClick={this.ShowSelectedEmojiList}/>
+						{
+							Emoji_SelectionList.List.map(eachIteration => 
+									<input id={eachIteration.id} type="button" value={eachIteration.value} onClick={this.ShowSelectedEmojiList}/>
+							)
+						}
 					</div>
 					<div style={{backgroundColor: "rgba(255,255,255,0.8)", padding: "5px", borderRadius: "5px", marginTop: "25px", display: "flex", flexDirection: "row", flexWrap: 'wrap', overflowY: "auto", height: "250px"}}>
 					{
@@ -111,6 +123,5 @@ class EmojiMenu extends React.Component
 		);
 	}
 }
-
 
 export default EmojiMenu;
