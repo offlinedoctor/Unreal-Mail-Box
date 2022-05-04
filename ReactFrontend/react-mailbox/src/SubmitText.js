@@ -34,9 +34,9 @@ class SubmitText extends React.Component
 	
 	downHandler(key)
 	{
-		console.log(key.code);
+		console.log(key);
 		
-		if (key.code == "ShiftLeft")
+		if (key.key == "Shift")
 		{
 			this.setState({isShiftDown: true});
 			console.log("shift held down");
@@ -45,7 +45,7 @@ class SubmitText extends React.Component
 	
 	upHandler(key)
 	{
-		if (key.code == "ShiftLeft")
+		if (key.key == "Shift")
 		{
 			this.setState({isShiftDown: false});
 			console.log("shift released");
@@ -89,7 +89,7 @@ class SubmitText extends React.Component
 	{
 		return(
 			<div style={{display: "flex", flexDirection: "row", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
-				<TextArea rows={2} id="MyInputText" onKeyDown={this.keyPress} style={{resize: "none"}}/>
+				<textarea fullWidth rows={2} cols={2555} id="MyInputText" onKeyDown={this.keyPress} style={{resize: "none"}}/>
 				<div style={{display: "flex", flexDirection: "column"}}>
 					<Button type="primary" icon=<CaretRightOutlined/>></Button>
 					<Popover content={<Picker onEmojiClick={this.GetSelectedEmoji}/>}>
