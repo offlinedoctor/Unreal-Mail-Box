@@ -20,16 +20,41 @@ class SubmitText extends React.Component
 	{
 		super();
 		
+		this.state = 
+		{
+			isShiftDown: false
+		}
+		
 		this.keyPress = this.keyPress.bind(this);
 		this.SubmitMail = this.SubmitMail.bind(this);
 		this.GetSelectedEmoji = this.GetSelectedEmoji.bind(this);
+		this.downHandler = this.downHandler.bind(this);
+		this.upHandler = this.upHandler.bind(this);
+	}
+	
+	downHandler(key)
+	{
+		console.log(key.code);
+		
+		if (key.code == "ShiftLeft")
+		{
+			this.setState({isShiftDown: true});
+			console.log("shift held down");
+		}
+	}
+	
+	upHandler(key)
+	{
+		if (key.code == "ShiftLeft")
+		{
+			this.setState({isShiftDown: false});
+			console.log("shift released");
+		}
 	}
 	
 	keyPress(event)
-	{
-		console.log(event.key);
-		
-		if (event.key === "Enter")
+	{				
+		if (event.key === "Enter" && this.state.isShiftDown == false)
 		{
 			this.SubmitMail();
 			event.preventDefault();
@@ -43,16 +68,21 @@ class SubmitText extends React.Component
 		let cursorPosition = document.getElementById("MyInputText").selectionStart;
 		let textBeforeCursorPosition = document.getElementById("MyInputText").value.substring(0, cursorPosition);
 		let textAfterCursorPosition = document.getElementById("MyInputText").value.substring(cursorPosition, document.getElementById("MyInputText").value.length);
-		document.getElementById("MyInputText").value = textBeforeCursorPosition + textToInsert + textAfterCursorPosition;
 	}
 	
 	SubmitMail()
 	{
 		console.log(document.getElementById("MyInputText").value);
 		window.ue4("AddToMailboxArray", document.getElementById("MyInputText").value);
-		//document.getElementById("MyInputText").value = " ";
+		document.getElementById("MyInputText").value = "";
 		//document.getElementById("MyInputText").value.focus();
 		//document.getElementById("MyInputText").setSelectionRange(0,0);
+	}
+		
+	componentDidMount()
+	{
+		 window.addEventListener('keydown', this.downHandler);
+		 window.addEventListener('keyup', this.upHandler);
 	}
 		
 	render()
