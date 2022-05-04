@@ -4,6 +4,8 @@ import {Button} from 'antd';
 import { Input } from 'antd';
 import { CaretRightOutlined, SmileOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
+import EmojiMenu from './EmojiMenu.js';
+import StyleCSS from './StyleCSS.css';
 
 const { TextArea } = Input;
 
@@ -89,8 +91,13 @@ class SubmitText extends React.Component
 	{
 		return(
 			<div style={{display: "flex", flexDirection: "row", boxShadow: "5px 5px 10px 0px rgba(0,0,0,0.2)"}}>
-				<textarea cols={120} rows={2} id="MyInputText" onKeyDown={this.keyPress} style={{resize: "none"}}/>
-				<Button style={{height: "auto", width: "15%"}} onClick={this.SubmitMail} type="primary" icon=<CaretRightOutlined/>></Button>
+				<textarea cols={240} rows={2} id="MyInputText" onKeyDown={this.keyPress} style={{resize: "none"}}/>
+				<div style={{display: "flex", flexDirection: "column"}}>
+					<Popover trigger="click" content={<EmojiMenu/>}>
+						<input id="inputbuttonStyle" type="button" value="😀"/>
+					</Popover>
+					<Button style={{width: "100%"}} onClick={this.SubmitMail} type="primary" icon=<CaretRightOutlined/>></Button>
+				</div>
 			</div>
 		);
 	}
