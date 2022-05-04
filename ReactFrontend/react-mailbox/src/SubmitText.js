@@ -68,6 +68,7 @@ class SubmitText extends React.Component
 		let cursorPosition = document.getElementById("MyInputText").selectionStart;
 		let textBeforeCursorPosition = document.getElementById("MyInputText").value.substring(0, cursorPosition);
 		let textAfterCursorPosition = document.getElementById("MyInputText").value.substring(cursorPosition, document.getElementById("MyInputText").value.length);
+		document.getElementById("MyInputText").value = textBeforeCursorPosition + textToInsert + textAfterCursorPosition;
 	}
 	
 	SubmitMail()
