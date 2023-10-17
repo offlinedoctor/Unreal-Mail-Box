@@ -2,7 +2,6 @@
 /MailBox/Intermediate/
 /MailBox/Saved/
 /MailBox/.vs/
-/MailBox/Config/
 .DS_STORE
 node_modules
 scripts/flow/*/.flowconfig
