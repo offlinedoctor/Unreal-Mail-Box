@@ -44,3 +44,11 @@ packages/react-devtools-timeline/dist
 /MailBox/Plugins/HttpLibrary/
 /MailBox/Plugins/JsonLibrary/
 /MailBox/Plugins/WebUI/
+/Mailbox_UE/.vs/
+/Mailbox_UE/Binaries/
+/Mailbox_UE/Config/
+/Mailbox_UE/Intermediate/
+/Mailbox_UE/Plugins/HttpLibrary/Binaries/
+/MailBox/Plugins/ThirdParty/HttpLibrary/Binaries/
+/MailBox/Plugins/ThirdParty/JsonLibrary/Binaries/
+/MailBox/Plugins/ThirdParty/WebUI/Binaries/
